@@ -23,103 +23,104 @@ Sistema completo de gerenciamento de CDR (Call Detail Record) desenvolvido em PH
 ## �� Estrutura do Projeto
 
 🏗️ ESTRUTURA ATUAL COMPLETA                                            
-📁 teste-mongodb/                                                              
-├── 📁 app/                                                          
-│ ├── 📁 Config/                                                            
-│ │ ├── 📄 app.php # ✅ Configurações gerais da aplicação
-│ │ ├── 📄 database.php # ✅ Configurações de banco de dados
-│ │ └── 📄 email.php # ✅ Configurações de email
-│ │                                                             
-│ ├── 📁 Controllers/                                                      
-│ │ ├── 📄 AuthController.php # ✅ Autenticação e login
-│ │ ├── 📄 DashboardController.php # ✅ Dashboard principal
-│ │ ├── 📄 EmailController.php # ✅ Configurações e envio de email
-│ │ ├── 📄 InstanceController.php # ✅ Gestão de instâncias
-│ │ ├── 📄 ReportController.php # ✅ Relatórios do sistema
-│ │ ├── 📄 SetupController.php # ✅ Configuração inicial
-│ │ └── 📄 UserController.php # ✅ Gestão de usuários
-│ │                                                                  
-│ ├── 📁 Helpers/                                             
-│ │ ├── 📄 Auth.php # ✅ Helper de autenticação
-│ │ ├── 📄 Email.php # ✅ Helper de email
-│ │ ├── 📄 Toastr.php # ✅ Notificações toast
-│ │ └── 📄 Utils.php # ✅ Utilitários gerais
-│ │                                                                        
-│ ├── 📁 Models/                                                     
-│ │ ├── 📄 CDR.php # ✅ Modelo de registros CDR
-│ │ ├── 📄 Database.php # ✅ Modelo de banco de dados
-│ │ ├── 📄 EmailReport.php # ✅ Relatórios por email
-│ │ ├── 📄 EmailSettings.php # ✅ Configurações de email
-│ │ ├── 📄 Instance.php # ✅ Modelo de instâncias
-│ │ └── 📄 User.php # ✅ Modelo de usuário
-│ │                                                                  
-│ └── 📁 Views/                                                 
-│ ├── 📁 auth/                                                   
-│ │ ├── 📄 login.php # ✅ Página de login
-│ │ └── 📄 register.php # ✅ Página de registro
-│ │                                                           
-│ ├── 📁 dashboard/
-│ │ ├── 📄 index.php # ✅ Dashboard principal
-│ │ └── 📄 reports.php # ✅ Página de relatórios
-│ │                                                            
-│ ├── 📁 email/                                                 
-│ │ ├── 📁 templates/                                             
-│ │ │ └── �� report-template.php # ✅ Template de relatório
-│ │ ├── 📄 admin-config.php # ✅ Config admin de email
-│ │ ├── 📄 config.php # ✅ Configurações de email
-│ │ └── 📄 preview.php # ✅ Preview de emails
-│ │                                                                  
-│ ├── 📁 layouts/                                                      
-│ │ ├── 📄 footer.php # ✅ Rodapé da aplicação
-│ │ ├── 📄 header.php # ✅ Cabeçalho da aplicação
-│ │ └── 📄 sidebar.php # ✅ Menu lateral
-│ │                                                                          
-│ ├── 📁 setup/                                                   
-│ │ └── 📄 first-admin.php # ✅ Configuração do primeiro admin
-│ │                                                                    
-│ └── 📁 users/
-│ ├── 📄 create.php # ✅ Criar usuário
-│ ├── 📄 edit.php # ✅ Editar usuário
-│ └── 📄 index.php # ✅ Lista de usuários
-│                                                                           
-├── 📁 cron/                                                      
-│ └── 📄 daily_report.php # ✅ Relatório diário automatizado
-│                                                                         
-├── 📁 database/                                                         
-│ ├── 📄 instance_template.sql # ✅ Template para novas instâncias
-│ ├── 📄 schema.sql # ✅ Schema principal do banco
-│ └── 📄 setup_mirian_dayrell.sql # ✅ Setup da instância Mirian Dayrell
-│                                                                             
-├── 📁 public/                                                                                                                                                     
-│ ├── 📁 assets/                                                                                                                   
-│ │ ├── 📁 css/                                                                                                                           
-│ │ │ ├── 📄 dashboard.css # ✅ Estilos do dashboard
-│ │ │ ├── 📄 email-config.css # ✅ Estilos config email
-│ │ │ ├── 📄 login-modern.css # ✅ Estilos modernos do login
-│ │ │ ├── 📄 style.css # ✅ Estilos principais
-│ │ │ ├── 📄 toastr-custom.css # ✅ Estilos personalizados toastr
-│ │ │ ├── 📄 user-form.css # ✅ Estilos formulários usuário
-│ │ │ └── 📄 users.css # ✅ Estilos página usuários
+sistema-callboard/
+│
+├── app/
+│ ├── Config/
+│ │ ├── app.php
+│ │ ├── database.php
+│ │ └── email.php
+│ │
+│ ├── Controllers/
+│ │ ├── AuthController.php
+│ │ ├── DashboardController.php
+│ │ ├── EmailController.php
+│ │ ├── InstanceController.php
+│ │ ├── ReportController.php
+│ │ ├── SetupController.php
+│ │ └── UserController.php
+│ │
+│ ├── Helpers/
+│ │ ├── Auth.php
+│ │ ├── Email.php
+│ │ ├── Toastr.php
+│ │ └── Utils.php
+│ │
+│ ├── Models/
+│ │ ├── CDR.php
+│ │ ├── Database.php
+│ │ ├── EmailReport.php
+│ │ ├── EmailSettings.php
+│ │ ├── Instance.php
+│ │ └── User.php
+│ │
+│ └── Views/
+│ ├── auth/
+│ │ ├── login.php
+│ │ └── register.php
+│ │
+│ ├── dashboard/
+│ │ ├── index.php
+│ │ └── reports.php
+│ │
+│ ├── email/
+│ │ ├── templates/
+│ │ │ └── report-template.php
+│ │ ├── admin-config.php
+│ │ ├── config.php
+│ │ └── preview.php
+│ │
+│ ├── layouts/
+│ │ ├── footer.php
+│ │ ├── header.php
+│ │ └── sidebar.php
+│ │
+│ ├── setup/
+│ │ └── first-admin.php
+│ │
+│ └── users/
+│ ├── create.php
+│ ├── edit.php
+│ └── index.php
+│
+├── cron/
+│ └── daily_report.php
+│
+├── database/
+│ ├── instance_template.sql
+│ ├── schema.sql
+│ └── setup_mirian_dayrell.sql
+│
+├── public/
+│ ├── assets/
+│ │ ├── css/
+│ │ │ ├── dashboard.css
+│ │ │ ├── email-config.css
+│ │ │ ├── login-modern.css
+│ │ │ ├── style.css
+│ │ │ ├── toastr-custom.css
+│ │ │ ├── user-form.css
+│ │ │ └── users.css
 │ │ │
-│ │ ├── 📁 images/                                                                 
-│ │ │ ├── 🖼️ eagle-telecom-logo.png # ✅ Logo Eagle Telecom
-│ │ │ └── 🖼️ mirian-dayrell-logo.png # ✅ Logo Mirian Dayrell
+│ │ ├── images/
+│ │ │ ├── eagle-telecom-logo.png
+│ │ │ └── mirian-dayrell-logo.png
 │ │ │
-│ │ └── 📁 js/                                                                      
-│ │ └── 📄 main.js # ✅ JavaScript principal
-│ │                                                                                 
-│ ├── 📄 .htaccess # ✅ Configurações Apache                                
-│ └── 📄 index.php # ✅ Ponto de entrada
-│                                                                     
-├── 📁 storage/                                                            
-│ └── 📁 logs/ # ✅ Diretório de logs                                                 
-│                                                                        
-├── 📁 vendor/ # ✅ Dependências Composer                                                  
-│ └── 📄 .htaccess # ✅ Proteção vendor                                               
-│                                                         
-├── 📄 composer.json # ✅ Dependências PHP                      
-└── �� composer.lock # ✅ Lock das versões                                
-                                                           
+│ │ └── js/
+│ │ └── main.js
+│ │
+│ ├── .htaccess
+│ └── index.php
+│
+├── storage/
+│ └── logs/
+│
+├── vendor/
+│ └── .htaccess
+│
+├── composer.json
+└── composer.lock
+
 ## ⚡ Instalação
 
 ```bash
