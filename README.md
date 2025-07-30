@@ -22,15 +22,15 @@ Sistema completo de gerenciamento de CDR (Call Detail Record) desenvolvido em PH
 
 ## �� Estrutura do Projeto
 
-🏗️ ESTRUTURA ATUAL COMPLETA
-📁 teste-mongodb/
-├── 📁 app/
-│ ├── 📁 Config/
-│ │ ├── 📄 app.php # ✅ Configurações gerais da aplicação
-│ │ ├── 📄 database.php # ✅ Configurações de banco de dados
-│ │ └── 📄 email.php # ✅ Configurações de email
-│ │
-│ ├── 📁 Controllers/
+🏗️ ESTRUTURA ATUAL COMPLETA                                            
+📁 teste-mongodb/                                                              
+├── 📁 app/                                                          
+│ ├── 📁 Config/                                                            
+│ │ ├── 📄 app.php # ✅ Configurações gerais da aplicação
+│ │ ├── 📄 database.php # ✅ Configurações de banco de dados
+│ │ └── 📄 email.php # ✅ Configurações de email
+│ │                                                             
+│ ├── 📁 Controllers/                                                      
 │ │ ├── 📄 AuthController.php # ✅ Autenticação e login
 │ │ ├── 📄 DashboardController.php # ✅ Dashboard principal
 │ │ ├── 📄 EmailController.php # ✅ Configurações e envio de email
@@ -38,61 +38,61 @@ Sistema completo de gerenciamento de CDR (Call Detail Record) desenvolvido em PH
 │ │ ├── 📄 ReportController.php # ✅ Relatórios do sistema
 │ │ ├── 📄 SetupController.php # ✅ Configuração inicial
 │ │ └── 📄 UserController.php # ✅ Gestão de usuários
-│ │
-│ ├── 📁 Helpers/
+│ │                                                                  
+│ ├── 📁 Helpers/                                             
 │ │ ├── 📄 Auth.php # ✅ Helper de autenticação
 │ │ ├── 📄 Email.php # ✅ Helper de email
 │ │ ├── 📄 Toastr.php # ✅ Notificações toast
 │ │ └── 📄 Utils.php # ✅ Utilitários gerais
-│ │
-│ ├── 📁 Models/
+│ │                                                                        
+│ ├── 📁 Models/                                                     
 │ │ ├── 📄 CDR.php # ✅ Modelo de registros CDR
 │ │ ├── 📄 Database.php # ✅ Modelo de banco de dados
 │ │ ├── 📄 EmailReport.php # ✅ Relatórios por email
 │ │ ├── 📄 EmailSettings.php # ✅ Configurações de email
 │ │ ├── 📄 Instance.php # ✅ Modelo de instâncias
 │ │ └── 📄 User.php # ✅ Modelo de usuário
-│ │
-│ └── 📁 Views/
-│ ├── 📁 auth/
+│ │                                                                  
+│ └── 📁 Views/                                                 
+│ ├── 📁 auth/                                                   
 │ │ ├── 📄 login.php # ✅ Página de login
 │ │ └── 📄 register.php # ✅ Página de registro
-│ │
+│ │                                                           
 │ ├── 📁 dashboard/
 │ │ ├── 📄 index.php # ✅ Dashboard principal
 │ │ └── 📄 reports.php # ✅ Página de relatórios
-│ │
-│ ├── 📁 email/
-│ │ ├── 📁 templates/
+│ │                                                            
+│ ├── 📁 email/                                                 
+│ │ ├── 📁 templates/                                             
 │ │ │ └── �� report-template.php # ✅ Template de relatório
 │ │ ├── 📄 admin-config.php # ✅ Config admin de email
 │ │ ├── 📄 config.php # ✅ Configurações de email
 │ │ └── 📄 preview.php # ✅ Preview de emails
-│ │
-│ ├── 📁 layouts/
+│ │                                                                  
+│ ├── 📁 layouts/                                                      
 │ │ ├── 📄 footer.php # ✅ Rodapé da aplicação
 │ │ ├── 📄 header.php # ✅ Cabeçalho da aplicação
 │ │ └── 📄 sidebar.php # ✅ Menu lateral
-│ │
-│ ├── 📁 setup/
+│ │                                                                          
+│ ├── 📁 setup/                                                   
 │ │ └── 📄 first-admin.php # ✅ Configuração do primeiro admin
-│ │
+│ │                                                                    
 │ └── 📁 users/
 │ ├── 📄 create.php # ✅ Criar usuário
 │ ├── 📄 edit.php # ✅ Editar usuário
 │ └── 📄 index.php # ✅ Lista de usuários
-│
-├── 📁 cron/
+│                                                                           
+├── 📁 cron/                                                      
 │ └── 📄 daily_report.php # ✅ Relatório diário automatizado
-│
-├── 📁 database/
+│                                                                         
+├── 📁 database/                                                         
 │ ├── 📄 instance_template.sql # ✅ Template para novas instâncias
 │ ├── 📄 schema.sql # ✅ Schema principal do banco
 │ └── 📄 setup_mirian_dayrell.sql # ✅ Setup da instância Mirian Dayrell
-│
-├── 📁 public/
-│ ├── 📁 assets/
-│ │ ├── 📁 css/
+│                                                                             
+├── 📁 public/                                                                                                                                                     
+│ ├── 📁 assets/                                                                                                                   
+│ │ ├── 📁 css/                                                                                                                           
 │ │ │ ├── 📄 dashboard.css # ✅ Estilos do dashboard
 │ │ │ ├── 📄 email-config.css # ✅ Estilos config email
 │ │ │ ├── 📄 login-modern.css # ✅ Estilos modernos do login
@@ -101,25 +101,25 @@ Sistema completo de gerenciamento de CDR (Call Detail Record) desenvolvido em PH
 │ │ │ ├── 📄 user-form.css # ✅ Estilos formulários usuário
 │ │ │ └── 📄 users.css # ✅ Estilos página usuários
 │ │ │
-│ │ ├── 📁 images/
+│ │ ├── 📁 images/                                                                 
 │ │ │ ├── 🖼️ eagle-telecom-logo.png # ✅ Logo Eagle Telecom
 │ │ │ └── 🖼️ mirian-dayrell-logo.png # ✅ Logo Mirian Dayrell
 │ │ │
-│ │ └── 📁 js/
+│ │ └── 📁 js/                                                                      
 │ │ └── 📄 main.js # ✅ JavaScript principal
-│ │
-│ ├── 📄 .htaccess # ✅ Configurações Apache
+│ │                                                                                 
+│ ├── 📄 .htaccess # ✅ Configurações Apache                                
 │ └── 📄 index.php # ✅ Ponto de entrada
-│
-├── 📁 storage/
-│ └── 📁 logs/ # ✅ Diretório de logs
-│
-├── 📁 vendor/ # ✅ Dependências Composer
-│ └── 📄 .htaccess # ✅ Proteção vendor
-│
-├── 📄 composer.json # ✅ Dependências PHP
-└── �� composer.lock # ✅ Lock das versões
-
+│                                                                     
+├── 📁 storage/                                                            
+│ └── 📁 logs/ # ✅ Diretório de logs                                                 
+│                                                                        
+├── 📁 vendor/ # ✅ Dependências Composer                                                  
+│ └── 📄 .htaccess # ✅ Proteção vendor                                               
+│                                                         
+├── 📄 composer.json # ✅ Dependências PHP                      
+└── �� composer.lock # ✅ Lock das versões                                
+                                                           
 ## ⚡ Instalação
 
 ```bash
