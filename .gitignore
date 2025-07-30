@@ -1,6 +1,3 @@
-# Dependências
-/vendor/
-
 # Logs
 storage/logs/*.log
 *.log
