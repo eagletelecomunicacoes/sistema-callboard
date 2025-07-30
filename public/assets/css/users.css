@@ -1,0 +1,398 @@
+/* ===== USERS PAGES STYLES ===== */
+
+/* Page Header */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.page-header-content {
+  flex: 1;
+}
+
+.page-header-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #5a5c69;
+  margin: 0 0 0.25rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.page-header-subtitle {
+  color: #858796;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.page-header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Card Header */
+.card-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* User Info in Table */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  font-size: 2rem;
+  color: #3498db;
+  flex-shrink: 0;
+}
+
+.user-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #5a5c69;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-status.online {
+  font-size: 0.75rem;
+  color: #28a745;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.user-status.online i {
+  font-size: 0.6rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Role Badges */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-user {
+  background: #d4edda;
+  color: #155724;
+}
+
+.role-admin {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.role-super_admin {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-inactive {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* Last Login */
+.last-login {
+  text-align: center;
+}
+
+.login-date {
+  font-weight: 500;
+  color: #5a5c69;
+  font-size: 0.9rem;
+}
+
+.login-time {
+  font-size: 0.8rem;
+  color: #858796;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.action-buttons .btn {
+  padding: 0.375rem 0.5rem;
+}
+
+/* Form Styles */
+.user-form {
+  max-width: none;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.form-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5a5c69;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-section-title::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  background: #3498db;
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #5a5c69;
+  margin-bottom: 0.5rem;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #858796;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: #3498db;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid #e3e6f0;
+}
+
+/* Info Card */
+.info-card .card-body {
+  padding: 1.5rem;
+}
+
+.user-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fc;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.user-summary-avatar {
+  font-size: 3rem;
+  color: #3498db;
+}
+
+.user-summary-info h6 {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  color: #5a5c69;
+}
+
+.user-summary-info p {
+  margin: 0;
+  color: #858796;
+  font-size: 0.9rem;
+}
+
+.info-section {
+  margin-bottom: 1.5rem;
+}
+
+.info-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a5c69;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #5a5c69;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #858796;
+  font-size: 0.9rem;
+}
+
+.info-value {
+  font-weight: 500;
+  color: #5a5c69;
+  font-size: 0.9rem;
+}
+
+.role-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.role-item {
+  padding: 0.75rem;
+  background: #f8f9fc;
+  border-radius: 6px;
+  border-left: 4px solid #3498db;
+}
+
+.role-item p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.85rem;
+  color: #858796;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .page-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .user-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .user-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Table Responsive Improvements */
+@media (max-width: 992px) {
+  .table-responsive {
+    font-size: 0.85rem;
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+  }
+
+  .action-buttons .btn {
+    padding: 0.25rem 0.375rem;
+  }
+}

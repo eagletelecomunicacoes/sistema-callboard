@@ -1,0 +1,241 @@
+/* Email Configuration Styles */
+.page-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.report-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 12px !important;
+}
+
+.report-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.report-card.active {
+  border-color: #0d6efd !important;
+  background: linear-gradient(135deg, #f8f9ff, #ffffff);
+}
+
+.stat-card {
+  transition: all 0.3s ease;
+  border-radius: 12px !important;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.stat-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.form-check-card .card {
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-check-card input:checked + label .card {
+  border-color: #0d6efd;
+  background: linear-gradient(135deg, #f8f9ff, #ffffff);
+  transform: scale(1.05);
+}
+
+.status-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.status-item:last-child {
+  border-bottom: none;
+}
+
+.tip-item {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tip-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.alert-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.provider-guide {
+  padding: 15px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-left: 4px solid #e9ecef;
+  margin-bottom: 15px;
+}
+
+.provider-guide:nth-child(1) {
+  border-left-color: #28a745;
+}
+.provider-guide:nth-child(2) {
+  border-left-color: #17a2b8;
+}
+.provider-guide:nth-child(3) {
+  border-left-color: #ffc107;
+}
+
+.security-tip {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 193, 7, 0.1);
+  border-left: 3px solid #ffc107;
+  margin-bottom: 15px;
+}
+
+.security-tip:last-child {
+  margin-bottom: 0;
+}
+
+.btn-group .btn {
+  border-radius: 8px !important;
+  margin-left: 5px;
+}
+
+.btn-group .btn:first-child {
+  margin-left: 0;
+}
+
+.card {
+  border-radius: 12px !important;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn.changed {
+  background: linear-gradient(135deg, #ff6b35, #f7931e) !important;
+  border-color: #ff6b35 !important;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #ff6b35;
+  }
+  to {
+    box-shadow: 0 0 20px #ff6b35, 0 0 30px #ff6b35;
+  }
+}
+
+/* Toast Container */
+.toast-container {
+  z-index: 9999;
+}
+
+/* Loading States */
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .page-header .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .page-header .btn-group .btn {
+    margin: 2px 0;
+  }
+}

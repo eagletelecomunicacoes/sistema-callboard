@@ -1,0 +1,327 @@
+/**
+ * Dashboard Responsive
+ * Media queries e responsividade
+ */
+
+/* ===== RESPONSIVIDADE MELHORADA ===== */
+@media (max-width: 1200px) {
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .charts-grid .summary-card {
+    grid-column: 1 / -1;
+  }
+
+  .filter-row {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .performance-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 16px;
+  }
+
+  .dashboard-header {
+    padding: 20px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .header-title {
+    font-size: 24px;
+  }
+
+  .filter-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .filter-period-indicator {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-actions-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-filter {
+    width: 100%;
+  }
+
+  .performance-controls,
+  .section-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .mini-filter-select {
+    min-width: auto;
+  }
+
+  .activity-stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chart-actions {
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    align-items: flex-start;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .history-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .history-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .modal-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-modal-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .call-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 20px;
+  }
+
+  .metric-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .metric-content h3 {
+    font-size: 28px;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-dialog {
+    margin: 8px;
+  }
+
+  .modal-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-modal-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .breakdown-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .breakdown-info {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .breakdown-bar {
+    margin: 0;
+    width: 100%;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .filter-reset,
+  .filter-toggle {
+    width: 100%;
+    height: 44px;
+  }
+}
+
+/* ===== PRINT STYLES MELHORADOS ===== */
+@media print {
+  .dashboard-header,
+  .filter-section,
+  .header-actions,
+  .btn-modern,
+  .btn-icon,
+  .chart-actions,
+  .performance-controls,
+  .section-controls,
+  .performance-action,
+  .metric-action {
+    display: none !important;
+  }
+
+  .main-content {
+    background: white !important;
+  }
+
+  .metric-card,
+  .chart-card,
+  .performance-card,
+  .activity-section {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    margin-bottom: 20px !important;
+  }
+
+  .chart-container,
+  .activity-chart {
+    height: 300px !important;
+  }
+
+  .performance-list,
+  .history-list {
+    break-inside: avoid;
+  }
+
+  .performance-item,
+  .history-item {
+    border: 1px solid #eee !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+/* ===== DARK MODE PREPARATION ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-white: #1e293b;
+    --bg-light: #334155;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+
+    --border-color: #334155;
+    --border-light: #475569;
+  }
+
+  .main-content {
+    background: var(--bg-primary);
+  }
+
+  .form-input {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+
+  .mini-filter-select {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+  .metric-card,
+  .chart-card,
+  .performance-card {
+    border-width: 2px;
+    border-color: #000;
+  }
+
+  .btn-modern,
+  .btn-filter {
+    border-width: 2px;
+  }
+
+  .form-input,
+  .mini-filter-select {
+    border-width: 2px;
+    border-color: #000;
+  }
+}
+
+/* ===== FOCUS STYLES ===== */
+.btn-modern:focus,
+.btn-icon:focus,
+.form-input:focus,
+.mini-filter-select:focus,
+.chart-action-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .metric-card,
+  .kpi-item,
+  .chart-card,
+  .summary-card,
+  .performance-card {
+    animation: none;
+  }
+
+  .metric-action,
+  .performance-action {
+    opacity: 1;
+    transform: none;
+  }
+}

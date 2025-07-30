@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirecionar tudo para public/
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]
+
+# Se não encontrar arquivo, redirecionar para index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . public/index.php [L]

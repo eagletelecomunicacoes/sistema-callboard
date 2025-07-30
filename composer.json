@@ -1,0 +1,21 @@
+{
+    "name": "cdr-system/teste-mongodb",
+    "description": "Sistema CDR - Mirian Dayrell",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "phpmailer/phpmailer": "^6.8",
+        "mongodb/mongodb": "^1.15"
+    },
+    "autoload": {
+        "classmap": [
+            "app/"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

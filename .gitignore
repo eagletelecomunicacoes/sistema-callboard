@@ -1,0 +1,39 @@
+# Dependências
+/vendor/
+
+# Logs
+storage/logs/*.log
+*.log
+
+# Configurações sensíveis
+app/Config/database.php
+app/Config/email.php
+
+# Cache e temporários
+*.cache
+*.tmp
+*.temp
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Backups
+*.sql
+*.backup
+
+# Ambiente
+.env
+.env.local
+.env.production
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
