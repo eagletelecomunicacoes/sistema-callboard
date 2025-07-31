@@ -1,4 +1,4 @@
-name: Deploy to Locaweb
+name: Deploy Otimizado to Locaweb
 
 on:
   push:
@@ -13,31 +13,53 @@ jobs:
       - name: 📥 Checkout código
         uses: actions/checkout@v4
 
-      - name: 🔧 Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.1"
-          extensions: mongodb, pdo, pdo_mysql, curl, json, mbstring
-
-      - name: 📦 Install Composer dependencies
+      - name: 🧹 Preparar arquivos para deploy (sem vendor)
         run: |
-          if [ -f composer.json ]; then
-            # Ignorar requisitos de plataforma para MongoDB
-            composer install --no-dev --optimize-autoloader --ignore-platform-req=ext-mongodb
-          fi
+          echo "🗂️ Removendo arquivos desnecessários para deploy..."
 
-      - name: 🧹 Limpar arquivos desnecessários
-        run: |
-          # Remover arquivos que não devem ir para produção
+          # Remover pastas e arquivos que não devem ir para produção
           rm -rf .git
           rm -rf .github
           rm -rf tests
           rm -rf node_modules
+          rm -rf vendor  # ✅ PRINCIPAL: Remover pasta vendor
+
+          # Remover arquivos de desenvolvimento
           rm -f .env.example
           rm -f README.md
           rm -f .gitignore
+          rm -f composer.json
+          rm -f composer.lock
+          rm -f phpunit.xml
+          rm -f package.json
+          rm -f package-lock.json
+          rm -f yarn.lock
 
-      - name: 🚀 Deploy via FTP
+          # Remover arquivos de debug/teste
+          rm -f debug-*.php
+          rm -f test_*.php
+          rm -f check_*.php
+
+          # Criar estruturas necessárias se não existirem
+          mkdir -p storage/logs
+          mkdir -p storage/cache
+          mkdir -p storage/uploads
+          chmod -R 755 storage 2>/dev/null || true
+
+          echo "📋 Arquivos que serão enviados:"
+          find . -type f -name "*.php" | wc -l
+          echo "arquivos PHP encontrados"
+
+      - name: 📊 Estatísticas do deploy
+        run: |
+          echo "📈 Estatísticas do deploy:"
+          echo "Total de arquivos: $(find . -type f | wc -l)"
+          echo "Arquivos PHP: $(find . -type f -name "*.php" | wc -l)"
+          echo "Arquivos CSS: $(find . -type f -name "*.css" | wc -l)"
+          echo "Arquivos JS: $(find . -type f -name "*.js" | wc -l)"
+          echo "Tamanho total: $(du -sh . | cut -f1)"
+
+      - name: 🚀 Deploy via FTP (Otimizado)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.eagletelecom2.hospedagemdesites.ws
@@ -48,9 +70,29 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+            **/vendor/**
             **/tests/**
             **/.env
             **/README.md
             **/.github/**
+            **/composer.json
             **/composer.lock
             **/phpunit.xml
+            **/package.json
+            **/package-lock.json
+            **/yarn.lock
+            **/.gitignore
+            **/debug-*.php
+            **/test_*.php
+            **/check_*.php
+            **/.DS_Store
+            **/Thumbs.db
+            **/*.tmp
+            **/*.log
+
+      - name: ✅ Deploy concluído
+        run: |
+          echo "🎉 Deploy realizado com sucesso!"
+          echo "🌐 Site: https://callboard.eagletelecom.com.br/"
+          echo "⚡ Deploy otimizado - apenas código próprio enviado"
+          echo "📦 Pasta vendor excluída do deploy"
