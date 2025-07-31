@@ -1,0 +1,41 @@
+name: Deploy to Locaweb
+
+on:
+  push:
+    branches: [main, master] # Dispara quando fizer push na branch main/master
+  workflow_dispatch: # Permite executar manualmente
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout código
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+
+      - name: 📦 Install Composer dependencies
+        run: |
+          if [ -f composer.json ]; then
+            composer install --no-dev --optimize-autoloader
+          fi
+
+      - name: 🚀 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.eagletelecom2.hospedagemdesites.ws
+          username: eagletelecom2
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/sistema-callboard/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/tests/**
+            **/.env
+            **/README.md
+            **/.github/**

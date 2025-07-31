@@ -12,10 +12,9 @@ class DatabaseConfig
     private static function getConfig()
     {
         // Detectar ambiente baseado no servidor
-        $serverIP = $_SERVER['SERVER_ADDR'] ?? $_SERVER['HTTP_HOST'] ?? 'localhost';
         $httpHost = $_SERVER['HTTP_HOST'] ?? 'localhost';
-
-        // Configurações por ambiente
+        
+        // ✅ NOVA LÓGICA DE DETECÇÃO DE AMBIENTE
         if (strpos($httpHost, 'localhost') !== false || strpos($httpHost, '127.0.0.1') !== false) {
             // AMBIENTE LOCAL (XAMPP/WAMP)
             return [
@@ -24,21 +23,29 @@ class DatabaseConfig
                 'password' => '',
                 'master_db' => 'sistema_cdr_master'
             ];
-        } elseif (strpos($httpHost, '10.0.1.55') !== false || $serverIP === '10.0.1.55') {
+        } elseif (strpos($httpHost, 'eagletelecom.com.br') !== false || strpos($httpHost, 'callboard.eagletelecom.com.br') !== false) {
+            // ✅ AMBIENTE PRODUÇÃO (LOCAWEB)
+            return [
+                'host' => 'callboard.mysql.dbaas.com.br',
+                'username' => 'callboard',
+                'password' => 'BdAdmin#2024!S',
+                'master_db' => 'callboard' // ✅ BANCO MASTER CORRETO
+            ];
+        } elseif (strpos($httpHost, '10.0.1.55') !== false) {
             // AMBIENTE SERVIDOR DEBIAN (LAMPP)
             return [
-                'host' => 'localhost', // ✅ MUDANÇA AQUI - usar localhost mesmo no servidor
+                'host' => 'localhost',
                 'username' => 'root',
                 'password' => '',
                 'master_db' => 'sistema_cdr_master'
             ];
         } else {
-            // AMBIENTE NUVEM/PRODUÇÃO
+            // AMBIENTE GENÉRICO/NUVEM
             return [
-                'host' => $_ENV['DB_HOST'] ?? 'localhost',
-                'username' => $_ENV['DB_USERNAME'] ?? 'root',
-                'password' => $_ENV['DB_PASSWORD'] ?? '',
-                'master_db' => $_ENV['DB_MASTER'] ?? 'sistema_cdr_master'
+                'host' => $_ENV['DB_HOST'] ?? 'callboard.mysql.dbaas.com.br',
+                'username' => $_ENV['DB_USERNAME'] ?? 'callboard',
+                'password' => $_ENV['DB_PASSWORD'] ?? 'BdAdmin#2024!S',
+                'master_db' => $_ENV['DB_MASTER'] ?? 'callboard'
             ];
         }
     }
@@ -55,7 +62,8 @@ class DatabaseConfig
             $pdo = new PDO($dsn, $config['username'], $config['password'], [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::ATTR_TIMEOUT => 30 // ✅ TIMEOUT PARA CONEXÕES REMOTAS
             ]);
 
             return $pdo;
@@ -72,12 +80,20 @@ class DatabaseConfig
     {
         try {
             $config = self::getConfig();
+            
+            // ✅ VERIFICAR SE O BANCO EXISTE NO MESMO SERVIDOR
+            // Para ambiente de produção, usar o mesmo banco principal
+            if (strpos($_SERVER['HTTP_HOST'] ?? '', 'eagletelecom.com.br') !== false) {
+                $dbName = 'callboard'; // ✅ FORÇAR USO DO BANCO PRINCIPAL
+            }
+            
             $dsn = "mysql:host={$config['host']};dbname={$dbName};charset=utf8mb4";
 
             $pdo = new PDO($dsn, $config['username'], $config['password'], [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false
+                PDO::ATTR_EMULATE_PREPARES => false,
+                PDO::ATTR_TIMEOUT => 30
             ]);
 
             return $pdo;
@@ -142,6 +158,7 @@ class DatabaseConfig
             $stmt->execute([$subdomain]);
             return $stmt->fetch();
         } catch (Exception $e) {
+            error_log("Erro ao verificar instância: " . $e->getMessage());
             return false;
         }
     }
