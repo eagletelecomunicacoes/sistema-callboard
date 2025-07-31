@@ -2,8 +2,8 @@ name: Deploy to Locaweb
 
 on:
   push:
-    branches: [main, master] # Dispara quando fizer push na branch main/master
-  workflow_dispatch: # Permite executar manualmente
+    branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -17,12 +17,25 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.1"
+          extensions: mongodb, pdo, pdo_mysql, curl, json, mbstring
 
       - name: 📦 Install Composer dependencies
         run: |
           if [ -f composer.json ]; then
-            composer install --no-dev --optimize-autoloader
+            # Ignorar requisitos de plataforma para MongoDB
+            composer install --no-dev --optimize-autoloader --ignore-platform-req=ext-mongodb
           fi
+
+      - name: 🧹 Limpar arquivos desnecessários
+        run: |
+          # Remover arquivos que não devem ir para produção
+          rm -rf .git
+          rm -rf .github
+          rm -rf tests
+          rm -rf node_modules
+          rm -f .env.example
+          rm -f README.md
+          rm -f .gitignore
 
       - name: 🚀 Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -30,7 +43,7 @@ jobs:
           server: ftp.eagletelecom2.hospedagemdesites.ws
           username: eagletelecom2
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/sistema-callboard/
+          server-dir: /public_html/sistema-callboard
           exclude: |
             **/.git*
             **/.git*/**
@@ -39,3 +52,5 @@ jobs:
             **/.env
             **/README.md
             **/.github/**
+            **/composer.lock
+            **/phpunit.xml
