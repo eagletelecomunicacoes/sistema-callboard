@@ -43,7 +43,7 @@ jobs:
           server: ftp.eagletelecom2.hospedagemdesites.ws
           username: eagletelecom2
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/sistema-callboard
+          server-dir: /public_html/sistema-callboard/
           exclude: |
             **/.git*
             **/.git*/**
