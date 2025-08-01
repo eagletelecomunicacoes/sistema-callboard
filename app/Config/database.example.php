@@ -42,9 +42,9 @@ class DatabaseConfig
         } else {
             // AMBIENTE GENÉRICO/NUVEM
             return [
-                'host' => $_ENV['DB_HOST'] ?? 'callboard.mysql.dbaas.com.br',
-                'username' => $_ENV['DB_USERNAME'] ?? 'callboard',
-                'password' => $_ENV['DB_PASSWORD'] ?? 'BdAdmin#2024!S',
+                'host' => $_ENV['DB_HOST'] ?? 'localhost',
+                'username' => $_ENV['DB_USERNAME'] ?? 'root',
+                'password' => $_ENV['DB_PASSWORD'] ?? '',
                 'master_db' => $_ENV['DB_MASTER'] ?? 'callboard'
             ];
         }
