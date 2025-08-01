@@ -26,9 +26,9 @@ class DatabaseConfig
         } elseif (strpos($httpHost, 'eagletelecom.com.br') !== false || strpos($httpHost, 'callboard.eagletelecom.com.br') !== false) {
             // ✅ AMBIENTE PRODUÇÃO (LOCAWEB)
             return [
-                'host' => 'callboard.mysql.dbaas.com.br',
-                'username' => 'callboard',
-                'password' => 'BdAdmin#2024!S',
+                'host' => 'localhost',
+                'username' => 'root',
+                'password' => '',
                 'master_db' => 'callboard' // ✅ BANCO MASTER CORRETO
             ];
         } elseif (strpos($httpHost, '10.0.1.55') !== false) {
